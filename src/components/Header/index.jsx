@@ -1,23 +1,36 @@
+import { useState, useEffect } from 'react';
+
 import { FiSearch } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
+
+import { useAuth } from '../../hooks/auth';
+
+import { api } from '../../services/api';
+
+import avatarPlaceholder from '../../assets/placeholder_avatar.svg';
 
 import { Container, Profile } from './styles';
 import { Input } from '../Input';
 
-export function Header() {
+export function Header({ search }) {
+  const { signOut, user } = useAuth();
+
+  const avatarUrl = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
+
   return (
     <Container>
       <h1>RocketMovies</h1>
-
-      <Input placeholder="Pesquisar pelo título" icon={FiSearch} />
-
       <Profile>
         <div>
-          <span>Lucas Virmond</span>
-          <a href="/">Sair</a>
+          <span>{user.name}</span>
+          <a href='/' onClick={signOut}>
+            Sair
+          </a>
         </div>
-        <Link to="/profile">
-          <img src="https://github.com/lucasvir.png" alt="Foto do usuário" />
+        <Link to='/profile'>
+          <img src={avatarUrl} alt={user.name} />
         </Link>
       </Profile>
     </Container>

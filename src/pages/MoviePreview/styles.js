@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100vh;
 `;
 
-export const ContentHeader = styled.div`
+const ContentHeader = styled.div`
   width: 100%;
 
   > div:nth-child(2) {
@@ -25,6 +25,17 @@ export const ContentHeader = styled.div`
       height: 2rem;
 
       color: ${({ theme }) => theme.COLORS.PINK};
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-left: 5%;
+      color: ${({ theme }) => theme.COLORS.GRAY_300};
+
+      background: none;
+      border: none;
     }
   }
 
@@ -47,6 +58,8 @@ export const ContentHeader = styled.div`
         height: 1.6rem;
 
         border-radius: 50%;
+
+        object-fit: cover;
       }
     }
 
@@ -70,3 +83,5 @@ export const ContentHeader = styled.div`
     margin-top: 4rem;
   }
 `;
+
+export { Container, ContentHeader };

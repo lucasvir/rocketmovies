@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
+const Container = styled.div`
   width: 100%;
   height: 100vh;
 `;
 
-export const ContentHeader = styled.div`
+const ContentHeader = styled.div`
   width: 100%;
 
   > h1 {
@@ -17,12 +17,12 @@ export const ContentHeader = styled.div`
   }
 `;
 
-export const Form = styled.form`
+const Form = styled.form`
   width: 100%;
 
   > div {
     display: flex;
-    gap: 4rem;
+    gap: 2rem;
   }
 
   textarea {
@@ -48,7 +48,8 @@ export const Form = styled.form`
     color: ${({ theme }) => theme.COLORS.GRAY_200};
   }
 
-  div:nth-child(4) {
+  .markers {
+    align-items: center;
     padding: 1.6rem;
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
 
@@ -61,8 +62,11 @@ export const Form = styled.form`
     display: flex;
 
     > button:first-child {
-      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_1000};
+      background-color: ${({ theme }) =>
+        theme.COLORS.BACKGROUND_1000};
       color: ${({ theme }) => theme.COLORS.PINK};
     }
   }
 `;
+
+export { Container, ContentHeader, Form };
