@@ -12,7 +12,7 @@ import avatarPlaceholder from '../../assets/placeholder_avatar.svg';
 import { Container, Profile } from './styles';
 import { Input } from '../Input';
 
-export function Header({ search }) {
+export function Header() {
   const { signOut, user } = useAuth();
 
   const avatarUrl = user.avatar
